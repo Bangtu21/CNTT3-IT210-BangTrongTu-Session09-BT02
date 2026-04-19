@@ -1,0 +1,5 @@
+Session09-BT02-Phần1
+- Đoạn check if (guestName == null) ở bên trong hàm lại hoàn toàn vô dụng và không bao giờ được chạy tới trong trường hợp khách truy cập lần đầu tại vì:
+	Ở lần truy cập đầu tiên, trình duyệt chưa có cookie guest_name. Do @CookieValue mặc định là bắt buộc, nên khi không tìm thấy cookie, Spring sẽ ném
+	lỗi ngay và trả về 400 trước khi gọi vào hàm homePage(). Vì vậy, đoạn if (guestName == null) bên trong hàm sẽ không bao giờ được chạy, nên hoàn toàn 
+	vô dụng
